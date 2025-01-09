@@ -78,7 +78,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"api/auth/signin/**",
 						"api/auth/signin/**",
 						"api/auth/send-mail-forgot-password-token",
-						"forgot-password", 
+						"forgot-password",
+						"/webhook",
 						"api/notification/**")						
 				.permitAll();
 
