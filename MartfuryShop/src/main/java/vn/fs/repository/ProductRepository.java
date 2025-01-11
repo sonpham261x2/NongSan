@@ -49,5 +49,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 			+ "group by p.product_id , p.name)\r\n"
 			+ "Order by category_id = ? desc, Rate desc", nativeQuery = true)
 	List<Product> findProductSuggest(Long id, Long id2, Long id3, Long id4);
-	
+
+
+	@Query("SELECT p FROM Product p WHERE p.discount = (SELECT MAX(p2.discount) FROM Product p2)")
+	Product findProductWithMaxDiscount();
+
 }
