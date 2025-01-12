@@ -83,6 +83,7 @@ const routes: Routes = [
     NgxPaginationModule,
     OrderModule,
     NgxPayPalModule,
+    // RouterModule.forRoot(routes, { enableTracing: true , useHash: true}),
     RouterModule.forRoot(routes, { enableTracing: true }),
     NgbModule,
      // NgModule,

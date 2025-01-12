@@ -36,43 +36,43 @@ public class DialogflowWebhookApi {
 
 
 //test payload
-//    @ResponseBody
-//    public String handleWebhook(@RequestBody String requestBody) {
-//        // Phân tích dữ liệu yêu cầu từ Dialogflow
-//        System.out.println("Received request: " + requestBody);
-//
-//        // Trả về response với Custom Payload
-//        String response = "{\n" +
-//                "  \"fulfillmentMessages\": [\n" +
-//                "    {\n" +
-//                "      \"text\": {\n" +
-//                "        \"text\": [\n" +
-//                "          \"Here is the product you asked for: Smartphone XYZ\"\n" +
-//                "        ]\n" +
-//                "      }\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      \"payload\": {\n" +
-//                "        \"richContent\": [\n" +
-//                "          [\n" +
-//                "            {\n" +
-//                "              \"icon\": {\n" +
-//                "                \"color\": \"#FF9800\",\n" +
-//                "                \"type\": \"link\"\n" +
-//                "              },\n" +
-//                "              \"link\": \"https://translate.google.com\",\n" +
-//                "              \"text\": \"View Product\",\n" +
-//                "              \"type\": \"button\"\n" +
-//                "            }\n" +
-//                "          ]\n" +
-//                "        ]\n" +
-//                "      }\n" +
-//                "    }\n" +
-//                "  ]\n" +
-//                "}";
-//
-//        return response;
-//    }
+    @ResponseBody
+    public String handleWebhook(@RequestBody String requestBody) {
+        // Phân tích dữ liệu yêu cầu từ Dialogflow
+        System.out.println("Received request: " + requestBody);
+
+        // Trả về response với Custom Payload
+        String response = "{\n" +
+                "  \"fulfillmentMessages\": [\n" +
+                "    {\n" +
+                "      \"text\": {\n" +
+                "        \"text\": [\n" +
+                "          \"Here is the product you asked for: Smartphone XYZ\"\n" +
+                "        ]\n" +
+                "      }\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"payload\": {\n" +
+                "        \"richContent\": [\n" +
+                "          [\n" +
+                "            {\n" +
+                "              \"icon\": {\n" +
+                "                \"color\": \"#FF9800\",\n" +
+                "                \"type\": \"link\"\n" +
+                "              },\n" +
+                "              \"link\": \"http://localhost:4200/product-detail/10\",\n" +
+                "              \"text\": \"View Product\",\n" +
+                "              \"type\": \"button\"\n" +
+                "            }\n" +
+                "          ]\n" +
+                "        ]\n" +
+                "      }\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
+
+        return response;
+    }
 
 
 //testpayloaddiscount
@@ -186,31 +186,31 @@ public class DialogflowWebhookApi {
 //        }
 //    }
 
-    public ResponseEntity<String> handleWebhook(@RequestBody String request) {
-        // Phân tích cú pháp JSON từ Dialogflow
-        Gson gson = new Gson();
-        WebhookRequest webhookRequest = gson.fromJson(request, WebhookRequest.class);
-
-        // Lấy thông tin người dùng đã chọn
-        String userMessage = webhookRequest.getQueryResult().getQueryText();
-        String productCategory = webhookRequest.getQueryResult().getParameters().getProduct_category();
-
-        // Tạo phản hồi cho Dialogflow
-        WebhookResponse response = new WebhookResponse();
-
-        if ("Điện thoại".equalsIgnoreCase(productCategory)) {
-            response.setFulfillmentText("Chúng tôi có các sản phẩm điện thoại như iPhone, Samsung Galaxy.");
-        } else if ("Laptop".equalsIgnoreCase(productCategory)) {
-            response.setFulfillmentText("Chúng tôi có các sản phẩm laptop như MacBook, Dell XPS.");
-        } else if ("Máy tính bảng".equalsIgnoreCase(productCategory)) {
-            response.setFulfillmentText("Chúng tôi có các sản phẩm máy tính bảng như iPad, Samsung Tab.");
-        } else {
-            response.setFulfillmentText("Xin lỗi, chúng tôi không tìm thấy sản phẩm bạn yêu cầu.");
-        }
-
-        // Trả về phản hồi cho Dialogflow
-        return ResponseEntity.ok(gson.toJson(response));
-    }
+//    public ResponseEntity<String> handleWebhook(@RequestBody String request) {
+//        // Phân tích cú pháp JSON từ Dialogflow
+//        Gson gson = new Gson();
+//        WebhookRequest webhookRequest = gson.fromJson(request, WebhookRequest.class);
+//
+//        // Lấy thông tin người dùng đã chọn
+//        String userMessage = webhookRequest.getQueryResult().getQueryText();
+//        String productCategory = webhookRequest.getQueryResult().getParameters().getProduct_category();
+//
+//        // Tạo phản hồi cho Dialogflow
+//        WebhookResponse response = new WebhookResponse();
+//
+//        if ("Điện thoại".equalsIgnoreCase(productCategory)) {
+//            response.setFulfillmentText("Chúng tôi có các sản phẩm điện thoại như iPhone, Samsung Galaxy.");
+//        } else if ("Laptop".equalsIgnoreCase(productCategory)) {
+//            response.setFulfillmentText("Chúng tôi có các sản phẩm laptop như MacBook, Dell XPS.");
+//        } else if ("Máy tính bảng".equalsIgnoreCase(productCategory)) {
+//            response.setFulfillmentText("Chúng tôi có các sản phẩm máy tính bảng như iPad, Samsung Tab.");
+//        } else {
+//            response.setFulfillmentText("Xin lỗi, chúng tôi không tìm thấy sản phẩm bạn yêu cầu.");
+//        }
+//
+//        // Trả về phản hồi cho Dialogflow
+//        return ResponseEntity.ok(gson.toJson(response));
+//    }
 
 
 
