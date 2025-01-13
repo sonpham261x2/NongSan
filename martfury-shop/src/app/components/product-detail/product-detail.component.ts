@@ -65,6 +65,12 @@ export class ProductDetailComponent implements OnInit {
     this.modalService.dismissAll();
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
+        console.log('if (!(evt instanceof NavigationEnd)) {');
+        console.log('if (!(evt instanceof NavigationEnd)) {');
+        console.log('if (!(evt instanceof NavigationEnd)) {');
+        console.log('if (!(evt instanceof NavigationEnd)) {');
+        console.log('if (!(evt instanceof NavigationEnd)) {');
+        console.log('if (!(evt instanceof NavigationEnd)) {');
         return;
       }
       window.scrollTo(0, 0)
@@ -74,6 +80,14 @@ export class ProductDetailComponent implements OnInit {
     this.getRates();
     this.getTotalLike();
     this.getAllRate();
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
+    console.log('Product ID:', this.id);
   }
 
   setItemsComment(size: number) {
@@ -95,6 +109,13 @@ export class ProductDetailComponent implements OnInit {
       })
     }, error => {
       this.toastr.error('Sản phẩm không tồn tại!', 'Hệ thống');
+      console.log('this.toastr.error(');
+      console.log('this.toastr.error(');
+      console.log('this.toastr.error(');
+      console.log('this.toastr.error(');
+      console.log('this.toastr.error(');
+      console.log('this.toastr.error(');
+
       this.router.navigate(['/home'])
     })
   }
@@ -102,6 +123,12 @@ export class ProductDetailComponent implements OnInit {
   getRates() {
     this.rateService.getByProduct(this.id).subscribe(data=>{
       this.rates = data as Rate[];
+      console.log('Rates data:', data);
+      console.log('Rates data:', data);
+      console.log('Rates data:', data);
+      console.log('Rates data:', data);
+      console.log('Rates data:', data);
+      
     }, error=>{
       this.toastr.error('Lỗi hệ thống!', 'Hệ thống');
     })

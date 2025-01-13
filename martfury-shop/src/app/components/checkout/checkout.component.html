@@ -39,7 +39,7 @@
                                         <small class="invalid-feedback">Số điện thoại không hợp lệ</small>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Chọn tỉnh thành<sup>*</sup>
                                     </label>
                                     <div class="form-group__content">
@@ -62,19 +62,48 @@
                                         </select>
                                         <small class="invalid-feedback">Hãy chọn huyện/thành phố của bạn</small>
                                     </div>
-                                </div>
+                                </div> -->
+
                                 <div class="form-group">
-                                    <label>Chọn phường/xã<sup>*</sup>
+                                    <label>Nhập tỉnh thành<sup>*</sup>
                                     </label>
                                     <div class="form-group__content">
-                                        <select style="font-size: 14px;" class="product-short-select custom-select" id="ward" (change)="setWardCode($event.target)" formControlName="ward"
-                                            [ngClass]="{'is-invalid':postForm.get('ward')?.touched && postForm.get('ward')?.invalid}">
-                                            <option value="0" selected disabled>Chọn phường/xã</option>
-                                            <option *ngFor="let item of wards" [value]="item.code">{{item.name}}</option>
-                                        </select>
+                                        <input                       
+                                        class="form-control"
+                                        type="text"
+                                        formControlName="provincee"
+                                        [ngClass]="{'is-invalid':postForm.get('provincee')?.touched && postForm.get('provincee')?.invalid}" placeholder="tỉnh thành">
+                                        <small class="invalid-feedback">Hãy nhập tỉnh thành của bạn</small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nhập quận/huyện<sup>*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <input                       
+                                        class="form-control"
+                                        type="text"
+                                        formControlName="districtt"
+                                        [ngClass]="{'is-invalid':postForm.get('districtt')?.touched && postForm.get('districtt')?.invalid}" placeholder="quận/huyện">
+                                        <small class="invalid-feedback">Hãy chọn quận/huyện của bạn</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhập phường/xã<sup>*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <input                       
+                                        class="form-control"
+                                        type="text"
+                                        formControlName="wardd"
+                                        [ngClass]="{'is-invalid':postForm.get('wardd')?.touched && postForm.get('wardd')?.invalid}" placeholder="phường/xã">
                                         <small class="invalid-feedback">Hãy chọn phường/xã của bạn</small>
                                     </div>
                                 </div>
+
+
+
                                 <div class="form-group">
                                     <label>Số nhà<sup>*</sup>
                                     </label>
@@ -87,6 +116,21 @@
                                         <small class="invalid-feedback">Hãy nhập số nhà của bạn</small>
                                     </div>
                                 </div>
+
+                                <!-- <div class="form-group">
+                                    <label>ĐỊA CHI NHẬN HÀN<sup>*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <input
+                                        class="form-control"
+                                        type="text"
+                                        formControlName="number"
+                                        [ngClass]="{'is-invalid':postForm.get('number')?.touched && postForm.get('number')?.invalid}" placeholder="Số nhà">
+                                        <small class="invalid-feedback">Hãy nhập số nhà của bạn</small>
+                                    </div>
+                                </div> -->
+
+
                                 <h3 class="mt-40"> Thông tin bổ sung</h3>
                                 <div class="form-group">
                                     <label>Ghi chú đơn hàng</label>

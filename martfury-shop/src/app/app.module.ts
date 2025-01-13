@@ -32,6 +32,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { OrderModule } from 'ngx-order-pipe';
 import { NgxPayPalModule } from 'ngx-paypal';
 
+import { AppRoutingModule } from './app-routing.module';
 
 const routes: Routes = [
   { path: 'home', component: HomepageComponent },
@@ -83,6 +84,9 @@ const routes: Routes = [
     NgxPaginationModule,
     OrderModule,
     NgxPayPalModule,
+    //
+    AppRoutingModule,
+    //
     RouterModule.forRoot(routes, { enableTracing: true }),
     NgbModule,
      // NgModule,
@@ -93,6 +97,8 @@ const routes: Routes = [
       // preventDuplicates: true,
       closeButton: true,
       // newestOnTop: false,
+
+    
     }),
   ],
   providers: [AuthGuard],

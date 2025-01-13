@@ -61,9 +61,12 @@ export class CheckoutComponent implements OnInit {
     private notificationService: NotificationService) {
     this.postForm = new FormGroup({
       'phone': new FormControl(null, [Validators.required, Validators.pattern('(0)[0-9]{9}')]),
-      'province': new FormControl(0, [Validators.required, Validators.min(1)]),
-      'district': new FormControl(0, [Validators.required, Validators.min(1)]),
-      'ward': new FormControl(0, [Validators.required, Validators.min(1)]),
+      // 'province': new FormControl(0, [Validators.required, Validators.min(1)]),
+      // 'district': new FormControl(0, [Validators.required, Validators.min(1)]),
+      // 'ward': new FormControl(0, [Validators.required, Validators.min(1)]),
+      'provincee': new FormControl('', Validators.required),
+      'districtt': new FormControl('', Validators.required),
+      'wardd': new FormControl('', Validators.required),
       'number': new FormControl('', Validators.required),
     })
   }
@@ -91,9 +94,12 @@ export class CheckoutComponent implements OnInit {
       this.cart = data as Cart;
       this.postForm = new FormGroup({
         'phone': new FormControl(this.cart.phone, [Validators.required, Validators.pattern('(0)[0-9]{9}')]),
-        'province': new FormControl(0, [Validators.required, Validators.min(1)]),
-        'district': new FormControl(0, [Validators.required, Validators.min(1)]),
-        'ward': new FormControl(0, [Validators.required, Validators.min(1)]),
+        // 'province': new FormControl(0, [Validators.required, Validators.min(1)]),
+        // 'district': new FormControl(0, [Validators.required, Validators.min(1)]),
+        // 'ward': new FormControl(0, [Validators.required, Validators.min(1)]),
+        'provincee': new FormControl('', Validators.required),
+        'districtt': new FormControl('', Validators.required),
+        'wardd': new FormControl('', Validators.required),
         'number': new FormControl('', Validators.required),
       })
       this.cartService.getAllDetail(this.cart.cartId).subscribe(data => {
@@ -128,7 +134,7 @@ export class CheckoutComponent implements OnInit {
         let email = this.sessionService.getUser();
         this.cartService.getCart(email).subscribe(data => {
           this.cart = data as Cart;
-          this.cart.address = this.postForm.value.number + ', ' + this.ward.name + ', ' + this.district.name + ', ' + this.province.name;
+          this.cart.address = this.postForm.value.number + ', ' + this.postForm.value.wardd +', ' + this.postForm.value.districtt +', ' + this.postForm.value.provincee ;
           this.cart.phone = this.postForm.value.phone;
           this.cartService.updateCart(email, this.cart).subscribe(data => {
             this.cart = data as Cart;
